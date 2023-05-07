@@ -22,4 +22,4 @@ export default {
 
     return{friend, url: photo.url}
   },
-};
+}
