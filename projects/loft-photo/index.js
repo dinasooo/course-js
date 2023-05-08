@@ -1,6 +1,6 @@
-import pages from 'pages.js';
-import model from 'model.js';
-import('styles.css');
+import pages from './pages.js';
+import model from './model.js';
+import('./styles.css');
 
 const pageNames = ['login', 'main', 'profile'];
 
