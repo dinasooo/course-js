@@ -4,7 +4,7 @@ const pagesMap = {
   profile: '.page-profile',
 };
 
-const currentPage = null;
+let currentPage = null;
 
 export default {
   openPage(name) {
