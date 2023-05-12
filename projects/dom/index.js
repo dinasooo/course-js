@@ -50,8 +50,8 @@ function prepend(what, where) {
 function findAllPSiblings(where) {
   let newArr = [];
 
-  for (const el of where.children){
-    if(el.nextElementSibling && el.nextElementSibling == 'p'){
+  for (const el of where.children) {
+    if (el.nextElementSibling && el.nextElementSibling.tagName === 'P') {
       newArr.push(el)
     }
   }
@@ -99,11 +99,11 @@ function findError(where) {
    должно быть преобразовано в <div></div><p></p>
  */
 function deleteTextNodes(where) {
-  for(let i = 0; i < where.childNodes.length; i++){
+  for (let i = 0; i < where.childNodes.length; i++) {
     const el = where.childNodes[i];
 
-    if(el.nodeType === Element.TEXT_NODE){
-      where.removeChild[el];
+    if (el.nodeType === Element.TEXT_NODE) {
+      where.removeChild(el);
       i--;
     }
   }
@@ -132,26 +132,26 @@ function deleteTextNodes(where) {
 function collectDOMStat(root) {
   const stat = {
     tags: {},
-    clssses: {},
+    classes: {},
     texts: 0,
   };
 
-  function scan(root){
-    for(const child of root.childNodes){
-      if(child.nodeType === Node.TEXT_NODE){
-        stat.text++;
-      }else if(child.nodeType === Node.ELEMENT_NODE){
-        if(child.tagName in stat.tags){
+  function scan(root) {
+    for (const child of root.childNodes) {
+      if (child.nodeType === Node.TEXT_NODE) {
+        stat.texts++;
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        if (child.tagName in stat.tags) {
           stat.tags[child.tagName]++;
-        }else{
+        } else {
           stat.tags[child.tagName] = 1;
         }
 
-        for(const className of child.classList){
-          if(className in stat.classes){
+        for (const className of child.classList) {
+          if (className in stat.classes) {
             stat.classes[className]++;
-          } else{
-            stat.clssses[className] = 1;
+          } else {
+            stat.classes[className] = 1;
           }
         }
 
