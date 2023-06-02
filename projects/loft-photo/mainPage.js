@@ -6,7 +6,7 @@ export default {
   async getNextPhoto() {
     const { friend, id, url } = await model.getNextPhoto();
     const photoStats = await model.photoStats(id);
-    this.setFriendAndPhoto(friend, id, url, photoStats);
+    this.setFriendAndPhoto(friend, id, url, photoStats);//
   },
 
   setFriendAndPhoto(friend, id, url, stats) {
